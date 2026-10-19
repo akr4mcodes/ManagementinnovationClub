@@ -61,6 +61,7 @@
     --gold-deep: #8A5F00;
     --gold-soft: #F6E8C3;
     --mist: #E8EBF5;
+    --cool-highlight: #A0E1FE;
 
     /* Lines & feedback */
     --line: #E4DFD0;
@@ -732,7 +733,26 @@ p { color: var(--ink-soft); }
     letter-spacing: 0.04em;
     color: #6B4A00;
 }
-.event-body h3 { margin-bottom: 1rem; overflow-wrap: anywhere; }
+.event-body h3 {
+    margin-bottom: 1rem;
+    overflow-wrap: anywhere;
+}
+.event-body h3 .event-title-highlight,
+.event-body h3 em {
+    display: inline;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--navy);
+    background: linear-gradient(transparent 66%, var(--cool-highlight) 66%, var(--cool-highlight) 90%, transparent 90%);
+    padding: 0 0.18em;
+    border-radius: 2px;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    transition: background 0.25s var(--ease);
+}
+.event:hover .event-title-highlight {
+    background: linear-gradient(transparent 62%, var(--cool-highlight) 62%, var(--cool-highlight) 92%, transparent 92%);
+}
 .event-desc { margin-bottom: 1.4rem; overflow-wrap: anywhere; }
 
 .event-features { display: grid; gap: 0.8rem; }

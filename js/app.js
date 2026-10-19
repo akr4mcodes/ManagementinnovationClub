@@ -3,8 +3,8 @@ const ReactDOM = window.ReactDOM;
 const { useState, useEffect, createContext, useContext } = React;
 
 // Import CONFIG from config.js
-import { CONFIG, EVENTS } from './config.js?v=4.8';
-import { translations } from './translations.js?v=4.8';
+import { CONFIG, EVENTS } from './config.js?v=5.0';
+import { translations } from './translations.js?v=5.0';
 
 // Language Context
 const LanguageContext = createContext();
@@ -220,7 +220,6 @@ function HeroSection() {
                 React.createElement(
                     "div",
                     { className: "hero-text" },
-                    React.createElement("span", { className: "eyebrow" }, t.heroEyebrow),
                     React.createElement("h1", null, titleParts),
                     React.createElement("p", { className: "hero-lead" }, t.heroDescription),
                     React.createElement(
@@ -423,7 +422,11 @@ function EventsSection() {
                             React.createElement("span", { className: "event-index" }, String(index + 1).padStart(2, '0')),
                             React.createElement("span", { className: "event-year" }, event.year)
                         ),
-                        React.createElement("h3", null, event.title),
+                        React.createElement(
+                            "h3",
+                            null,
+                            React.createElement("span", { className: "event-title-highlight" }, event.title)
+                        ),
                         React.createElement("p", { className: "event-desc" }, splitDescription(event.description).intro),
                         splitDescription(event.description).bullets.length > 0 && React.createElement(
                             "ul",

@@ -69,6 +69,7 @@ export const translations = {
     // Footer
     footerText: "© 2026 Management Innovation Club. All rights reserved to Creator.",
     footerLocation: "based in ESSG Annaba, Algeria",
+    developedWithLove: "Developed with love by",
     
     // Form validation messages
     requiredField: "This field is required",
@@ -82,6 +83,42 @@ export const translations = {
     formSuccess: "📧Thank you for joining! Check your email for confirmation.",
     formError: "There was a problem submitting your registration. Please try again.",
     
+    // Redesign additions
+    heroEyebrow: "Scientific student club · ESSG Annaba",
+    heroSecondary: "Explore our events",
+    statEvents: "Events",
+    statCells: "Cells",
+    statNonProfit: "Non-profit",
+    statNonProfitLabel: "Scientific & cultural",
+    aboutEyebrow: "About the club",
+    cellsTitle: "Our cells",
+    eventsEyebrow: "Programme",
+    backToTop: "Back to top",
+    navMenu: "Menu",
+
+    // FAQ Section
+    faqEyebrow: "Answers & Inquiries",
+    faqTitle: "Frequently Asked Questions",
+    faqSubtitle: "Everything you need to know about joining Management Innovation Club and our activities.",
+    faqs: [
+      {
+        q: "Who is eligible to join MIC ESSG Annaba?",
+        a: "All registered university students from CP1 to Master level at ESSG Annaba as well as neighboring institutions with a passion for scientific research, management innovation, and professional teamwork are welcome to apply."
+      },
+      {
+        q: "Do I need prior club experience to be accepted?",
+        a: "No prior club experience is required. We evaluate candidates based on their enthusiasm, curiosity, willingness to learn, and commitment to scientific and managerial development."
+      },
+      {
+        q: "How are members assigned to the operational cells?",
+        a: "During application, candidates indicate their preferred cell (External Relations, Design, Marketing, Logistics, or Projects). Assignments are made based on personal interests, skills, and current cell capacities."
+      },
+      {
+        q: "What is the annual Stagera event?",
+        a: "Stagera is our premier annual career convention connecting students directly with corporate recruiters, founders, and industry leaders through exclusive workshops, panel discussions, and internship matchmaking."
+      }
+    ],
+
     // Language switcher
     switchToFrench: "Français",
     switchToEnglish: "English"
@@ -155,6 +192,7 @@ export const translations = {
     // Footer
     footerText: "© 2026 Management Innovation Club. Tous droits réservés au Créateur.",
     footerLocation: "basée à ESSG Annaba, Algérie",
+    developedWithLove: "Développé avec amour par",
     
     // Form validation messages
     requiredField: "Ce champ est obligatoire",
@@ -168,6 +206,42 @@ export const translations = {
     formSuccess: "📧Merci pour votre inscription! Vérifiez votre e-mail pour la confirmation.",
     formError: "Une erreur s'est produite lors de l'envoi de votre inscription. Veuillez réessayer.",
     
+    // Redesign additions
+    heroEyebrow: "Club scientifique étudiant · ESSG Annaba",
+    heroSecondary: "Découvrir nos événements",
+    statEvents: "Événements",
+    statCells: "Cellules",
+    statNonProfit: "À but non lucratif",
+    statNonProfitLabel: "Scientifique et culturel",
+    aboutEyebrow: "À propos du club",
+    cellsTitle: "Nos cellules",
+    eventsEyebrow: "Programme",
+    backToTop: "Retour en haut",
+    navMenu: "Menu",
+
+    // FAQ Section
+    faqEyebrow: "Réponses & Informations",
+    faqTitle: "Foire Aux Questions",
+    faqSubtitle: "Tout ce que vous devez savoir pour rejoindre le Management Innovation Club et participer à nos activités.",
+    faqs: [
+      {
+        q: "Qui peut postuler pour rejoindre le MIC ESSG Annaba ?",
+        a: "Tous les étudiants inscrits de la classe préparatoire (CP1) jusqu'au Master à l'ESSG Annaba ainsi que des établissements partenaires, animés par la passion de l'innovation et du management, sont les bienvenus."
+      },
+      {
+        q: "Faut-il avoir une expérience préalable en club associatif ?",
+        a: "Aucune expérience préalable n'est exigée. Nous sélectionnons les candidats sur leur motivation, curiosité, esprit d'initiative et volonté d'apprendre au sein d'une équipe dynamique."
+      },
+      {
+        q: "Comment les membres sont-ils affectés aux cellules spécialisées ?",
+        a: "Lors de la candidature, vous indiquez votre cellule de préférence. L'affectation est confirmée suite à l'entretien selon vos centres d'intérêt, compétences et besoins de l'équipe."
+      },
+      {
+        q: "En quoi consiste l'événement annuel Stagera ?",
+        a: "Stagera est notre forum annuel réunissant recruteurs, dirigeants et étudiants pour des ateliers de simulation d'entretiens, des conférences exclusives et des opportunités concrètes de stages."
+      }
+    ],
+
     // Language switcher
     switchToFrench: "Français",
     switchToEnglish: "English"

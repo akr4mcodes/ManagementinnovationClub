@@ -3,8 +3,8 @@ const ReactDOM = window.ReactDOM;
 const { useState, useEffect, createContext, useContext } = React;
 
 // Import CONFIG from config.js
-import { CONFIG, EVENTS } from './config.js?v=5.0';
-import { translations } from './translations.js?v=5.0';
+import { CONFIG, EVENTS } from './config.js?v=5.1';
+import { translations } from './translations.js?v=5.1';
 
 // Language Context
 const LanguageContext = createContext();
@@ -532,7 +532,17 @@ function RegistrationForm() {
     });
 
     const [loading, setLoading] = useState(false);
-    const [message, setMessage] = useState({ type: "", text: "" });
+    const [message, setMessage] = useState({ type: "", key: "" });
+
+    // Resolve alert text in the active language, falling back to the other
+    // language if a translation is ever missing.
+    const getMessageText = (key) => {
+        if (!key) return "";
+        const current = translations[language] || {};
+        const fallback = translations.en || {};
+        const secondary = translations.fr || {};
+        return current[key] || fallback[key] || secondary[key] || current.formError || fallback.formError || "";
+    };
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -562,19 +572,34 @@ function RegistrationForm() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setLoading(true);
-        setMessage({ type: "", text: "" });
+        setMessage({ type: "", key: "" });
+
+        // Only ESSG Annaba school email addresses are accepted
+        const schoolEmailRegex = /^[A-Za-z0-9._%+-]+@essg-annaba\.dz$/i;
+        if (!schoolEmailRegex.test(formData.email.trim())) {
+            setMessage({ type: "error", key: "invalidEmailDomain" });
+            setLoading(false);
+            return;
+        }
 
         // Validate Facebook or Instagram profile link pattern
         const socialRegex = /^(https?:\/\/)?(www\.|m\.)?(facebook\.com|fb\.com|instagram\.com|instagr\.am)\/.+/i;
         if (!formData.socialLink || !socialRegex.test(formData.socialLink.trim())) {
-            setMessage({ type: "error", text: t.invalidSocialLink });
+            setMessage({ type: "error", key: "invalidSocialLink" });
             setLoading(false);
             return;
         }
 
         // Validate scientific club experience selection
         if (!formData.pastClubExperience) {
-            setMessage({ type: "error", text: t.requiredField });
+            setMessage({ type: "error", key: "requiredField" });
+            setLoading(false);
+            return;
+        }
+
+        // Require at least one skill / interest
+        if (!Array.isArray(formData.skills) || formData.skills.length === 0) {
+            setMessage({ type: "error", key: "skillsRequired" });
             setLoading(false);
             return;
         }
@@ -626,7 +651,7 @@ function RegistrationForm() {
 
         // Show feedback to user
         if (sheetSuccess || firestoreSuccess) {
-            setMessage({ type: "success", text: t.formSuccess });
+            setMessage({ type: "success", key: "formSuccess" });
             setFormData({
                 fullName: "",
                 familyName: "",
@@ -642,11 +667,11 @@ function RegistrationForm() {
                 skills: [],
                 motivation: ""
             });
-            setTimeout(() => setMessage({ type: "", text: "" }), 5000);
+            setTimeout(() => setMessage({ type: "", key: "" }), 5000);
         } else {
             setMessage({ 
                 type: "error", 
-                text: t.formError 
+                key: "formError" 
             });
         }
         setLoading(false);
@@ -892,13 +917,13 @@ function RegistrationForm() {
                             { type: "submit", className: "btn btn-primary btn-large form-submit full", disabled: loading },
                             loading ? t.submitting : t.submitButton
                         ),
-                        message.text && React.createElement(
+                        message.key && React.createElement(
                             "div",
                             {
                                 className: `${message.type === "success" ? "success-message" : "error-message"} full`,
                                 role: message.type === "success" ? "status" : "alert"
                             },
-                            message.text
+                            getMessageText(message.key)
                         )
                     )
                 )

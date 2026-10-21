@@ -66,7 +66,11 @@ export const CONFIG = {
         },
         email: {
             required: true,
-            pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+            pattern: /^[A-Za-z0-9._%+-]+@essg-annaba\.dz$/i
+        },
+        skills: {
+            required: true,
+            minSelected: 1
         },
         socialLink: {
             required: true,

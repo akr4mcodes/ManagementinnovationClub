@@ -74,6 +74,8 @@ export const translations = {
     // Form validation messages
     requiredField: "This field is required",
     invalidEmail: "Please enter a valid email address",
+    invalidEmailDomain: "Please enter your ESSG Annaba email address (name@essg-annaba.dz)",
+    skillsRequired: "Please select at least one skill or interest",
     invalidPhone: "Please enter a valid 10-digit phone number",
     invalidSocialLink: "Please enter a valid Facebook or Instagram profile link (starting with facebook.com or instagram.com)",
     minLength: "Minimum length is {min} characters",
@@ -197,6 +199,8 @@ export const translations = {
     // Form validation messages
     requiredField: "Ce champ est obligatoire",
     invalidEmail: "Veuillez saisir une adresse e-mail valide",
+    invalidEmailDomain: "Veuillez saisir votre adresse e-mail ESSG Annaba (nom@essg-annaba.dz)",
+    skillsRequired: "Veuillez sélectionner au moins une compétence ou un intérêt",
     invalidPhone: "Veuillez saisir un numéro de téléphone valide à 10 chiffres",
     invalidSocialLink: "Veuillez entrer un lien de profil Facebook ou Instagram valide (commençant par facebook.com ou instagram.com)",
     minLength: "La longueur minimale est de {min} caractères",
